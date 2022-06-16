@@ -1,6 +1,30 @@
 {
   "name": "ngx-number-input",
   "version": "0.0.1",
+  "author": {
+    "name": "Juan Manuel Meneses I.",
+    "email": "hola@mamasoyjuanito.dev",
+    "url": "https://mamasoyjuanito.dev"
+  },
+  "description": "Componente angular para formatear números dentro de un input",
+  "readme": "https://github.com/mamasoyjuanito/ngx-number-input/blob/main/README.md",
+  "license": "(GNU General Public License v3.0)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mamasoyjuanito/ngx-number-input"
+  },
+  "keywords": [
+    "Angular",
+    "Number",
+    "Input",
+    "Angular11",
+    "Currency",
+    "LocaleFormate",
+    "Money",
+    "mamasoyjuanito",
+    "soyjuanito",
+    "mamasoyjuanito.dev"
+  ],
   "peerDependencies": {
     "@angular/common": "^11.1.1",
     "@angular/core": "^11.1.1"
