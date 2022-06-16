@@ -1,0 +1,4 @@
+<input type="number" [(ngModel)]="value" [attr.max]="max" [attr.min]="min" [attr.class]="klass" [ngClass]="ngClass" (change)="updateChanges()" [placeholder]="placeholder" (blur)="onBlur()" [required]="isRequired" [disabled]="isDisabled" [readonly]="isReadOnly"
+    *ngIf="isFocused" #inputN>
+<input type="text" value="{{ numberFormatted }}" [attr.max]="max" [attr.min]="min" [ngClass]="ngClass" [required]="isRequired" [attr.class]="klass" [disabled]="isDisabled" [readonly]="isReadOnly" [placeholder]="placeholder" (focus)="onFocus()" *ngIf="!isFocused">
+<p *ngIf="isFocused"><span class="text-muted">{{ numberFormatted }}</span></p>
