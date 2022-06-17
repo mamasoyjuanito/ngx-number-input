@@ -1,6 +1,6 @@
 {
   "name": "ngx-number-input",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Juan Manuel Meneses I.",
     "email": "hola@mamasoyjuanito.dev",
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "Angular",
-    "Number",
+    "Number", 
     "Input",
     "Angular11",
     "Currency",
