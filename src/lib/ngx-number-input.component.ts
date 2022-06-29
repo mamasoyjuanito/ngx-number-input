@@ -54,7 +54,7 @@ export class NgxNumberInputComponent implements OnInit, ControlValueAccessor, Va
     return this._max;
   }
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -70,22 +70,34 @@ export class NgxNumberInputComponent implements OnInit, ControlValueAccessor, Va
 
 
   validate({ value }: FormControl): ValidationErrors {
-    let isNotValid = this.value !== Number(value);
-    if(!isNotValid && this.min) {
-      isNotValid = (Number(value) < this.min);
+    let isNotValid = false;
+    if (this.isRequired) {
+      if (!this.value || this.value.toString() == "") {
+        return {
+          "invalid": true,
+          "required": true,
+        };
+      }
     }
-    if(!isNotValid && this.max) {
-      isNotValid = (Number(value) > this.max);
+    if (this.value) {
+      isNotValid = this.value !== Number(value);
+      if (!isNotValid && this.min) {
+        isNotValid = (Number(value) < this.min);
+      }
+      if (!isNotValid && this.max) {
+        isNotValid = (Number(value) > this.max);
+      }
     }
-    if(isNotValid) {
+
+    if (isNotValid) {
       return {
         "invalid": true,
-        "max": (Number(value) > this.max),
-        "min": (Number(value) < this.min)
+        "max": this.max ? (Number(value) > this.max) : null,
+        "min": this.min ? (Number(value) < this.min) : null
       };
-    } else {
-      return {};
     }
+    return null;
+
   }
 
   updateChanges() {
@@ -107,11 +119,11 @@ export class NgxNumberInputComponent implements OnInit, ControlValueAccessor, Va
   }
 
   get numberFormatted(): string {
-    if(this.value) {
-      if(this.currency) {
+    if (this.value) {
+      if (this.currency) {
         try {
           return Number(this.value).toLocaleString(this.locale, {
-            style: 'currency', 
+            style: 'currency',
             currency: this.currency,
           });
         } catch (error) {
